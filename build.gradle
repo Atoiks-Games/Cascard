@@ -18,18 +18,18 @@ dependencies {
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 
-	testLogging {
-		events "passed", "skipped", "failed"
-	}
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 
-	reports {
-		html.enabled = true
-	}
+    reports {
+        html.enabled = true
+    }
 }
 
 task wrapper(type: Wrapper) {
-	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '4.6'
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '4.6'
 }
