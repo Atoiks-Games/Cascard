@@ -10,9 +10,32 @@ public class ConsoleGame extends Game {
 
     private BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
 
-    public ConsoleGame(final Supplier<Card> deck, final Hand... players) {
-        this.setPlayers(players);
+    public ConsoleGame(final Supplier<Card> deck) {
         this.deck = deck;
+    }
+
+    @Override
+    public boolean init() {
+        System.out.println("How many players are joining?");
+        int inp = -1;
+        while (inp < 2) {
+            System.out.print("(enter 2 to k)");
+            try {
+                inp = Integer.parseInt(sysin.readLine().trim());
+            } catch (IOException | NullPointerException ex) {
+                return false;
+            } catch (NumberFormatException ex) {
+                // restart the loop, ask for input again
+            }
+        }
+
+        final Hand[] players = new Hand[inp];
+        for (int i = 0; i < players.length; ++i) {
+            players[i] = new Hand();
+        }
+        this.setPlayers(players);
+
+        return super.init();
     }
 
     @Override

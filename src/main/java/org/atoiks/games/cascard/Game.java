@@ -26,9 +26,10 @@ public abstract class Game {
         ended = true;
     }
 
-    public void init() {
+    public boolean init() {
         dealCards();
         topCard = deck.get();
+        return true;
     }
 
     public final void round() {
