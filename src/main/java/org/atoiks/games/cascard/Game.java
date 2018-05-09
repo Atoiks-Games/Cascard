@@ -7,9 +7,13 @@ public abstract class Game {
     private int lastPlayer;
     private Hand[] players;
     private boolean ended;
+    private Supplier<Card> deck;
 
-    protected Supplier<Card> deck;
     protected Card topCard;
+
+    public final void useDeck(final Supplier<Card> deck) {
+        this.deck = deck;
+    }
 
     protected final void setPlayers(final Hand[] players) {
         this.lastPlayer = -1;

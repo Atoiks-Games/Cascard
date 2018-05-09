@@ -17,10 +17,6 @@ import javax.swing.ListSelectionModel;
 
 public class SwingGame extends Game {
 
-    public SwingGame(final Supplier<Card> deck) {
-        this.deck = deck;
-    }
-
     @Override
     public boolean init() {
         int inp = -1;

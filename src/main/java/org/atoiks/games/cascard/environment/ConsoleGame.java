@@ -14,10 +14,6 @@ public class ConsoleGame extends Game {
 
     private final BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
 
-    public ConsoleGame(final Supplier<Card> deck) {
-        this.deck = deck;
-    }
-
     @Override
     public boolean init() {
         System.out.println("How many players are playing?");

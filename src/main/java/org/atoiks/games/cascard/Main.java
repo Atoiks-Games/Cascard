@@ -8,9 +8,10 @@ public class Main {
 
     public static void main(String[] args) {
         final CardGenerator deck = new CardGenerator();
-        final Game game = GraphicsEnvironment.isHeadless() ? new ConsoleGame(deck) : new SwingGame(deck);
+        final Game game = GraphicsEnvironment.isHeadless() ? new ConsoleGame() : new SwingGame();
 
         try {
+            game.useDeck(deck);
             if (game.init()) {
                 while (!game.hasEnded()) {
                     game.round();
