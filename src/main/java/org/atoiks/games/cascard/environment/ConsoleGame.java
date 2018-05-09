@@ -1,4 +1,8 @@
-package org.atoiks.games.cascard;
+package org.atoiks.games.cascard.environment;
+
+import org.atoiks.games.cascard.Card;
+import org.atoiks.games.cascard.Game;
+import org.atoiks.games.cascard.Hand;
 
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -8,7 +12,7 @@ import java.util.function.Supplier;
 
 public class ConsoleGame extends Game {
 
-    private BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
+    private final BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
 
     public ConsoleGame(final Supplier<Card> deck) {
         this.deck = deck;
@@ -16,7 +20,7 @@ public class ConsoleGame extends Game {
 
     @Override
     public boolean init() {
-        System.out.println("How many players are joining?");
+        System.out.println("How many players are playing?");
         int inp = -1;
         while (inp < 2) {
             System.out.print("(enter 2 to k)");
